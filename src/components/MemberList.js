@@ -15,17 +15,10 @@ export default function MemberList() {
         .catch(err => console.log(err))
     }, [])
 
-    //Delete Member functionality
-    function deleteMember(id) {
-        axios.delete(`http://localhost:5000/members/${id}`)
-            .then(response => { console.log(response.data)});
-
-        setMembers(members.filter(el => el._id !== id))
-    }
 
     const memberList = () => {
         return members.map(currentMember => {
-            return <Member member={currentMember} deleteMember={deleteMember} key={currentMember._id} />
+            return <Member member={currentMember} key={currentMember._id} />
         })
     }
 

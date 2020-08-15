@@ -43,27 +43,13 @@ router.route('/:id').delete((req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`))
 });
 
-router.route('/edit/:id').post((req, res) => {
+router.route('/show/:id').get((req, res) => {
     Members.findById(req.params.id)
-        .then(member => {
-            member.firstName = req.body.firstName
-            member.lastName = req.body.lastName
-            member.dateOfBirth = req.body.dateOfBirth
-            member.address = req.body.address
-            member.gender = req.body.gender
-            // member.image = req.body.image
-
-            // member.feature.height = Number(req.body.height)
-            // member.feature.weight = Number(req.body.weight)
-            // member.feature.bodyFat = Number(req.body.bodyFat)
-            // member.feature.waist = Number(req.body.waist)
-
-            member.save()
-                .then(() => res.json("Member details updated!"))
-                .catch(err => res.status(400).json(`Error: ${err}`))
-        })
+        .then(member => res.json(member))
         .catch(err => res.status(400).json(`Error: ${err}`))
 });
+
+
 
 module.exports = router;
 

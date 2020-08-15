@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Member( {member, deleteMember }) {
+export default function Member( {member, key}) {
 
     const { firstName, lastName, gender, dateOfBirth, address, phoneNumber, createdAt } = member;
 
     return (        
             <tr className="table-row">
-                <td>{firstName}</td>
+                <td><Link to={`/show/${member._id}`} >{firstName}</Link></td>
                 <td>{lastName}</td>
                 <td>{dateOfBirth.slice(0, 10)}</td>
                 <td>{gender}</td>

@@ -33,7 +33,7 @@ export default function CreateMember() {
         axios.post('http://localhost:5000/members/add', member)
             .then(res => console.log(res.data))
     
-        // window.location = '/';
+        window.location = '/';
     }
 
     return (
