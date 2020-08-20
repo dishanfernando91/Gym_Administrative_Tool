@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import noImage from '../images/no-image-available.jpg'
 import axios from 'axios'
 
 export default function MemberDetail(props) {
 
-    const [member, setMember] = useState({})
-    const { firstName, lastName, dateOfBirth, address, phoneNumber, gender } = member;
+    const [member, setMember] = useState({});
+    const { firstName, lastName, address, phoneNumber, gender } = member;
     
     useEffect(() => {
         axios.get(`http://localhost:5000/members/show/${props.match.params.id}`)
@@ -44,7 +45,7 @@ export default function MemberDetail(props) {
             <div className="card-header">
                 <h3>{firstName} {lastName} - {gender}</h3>
                 <div className="buttons">
-                    <button>Edit</button> <span>|</span>
+                    <button><Link to={`/edit/${member._id}`}>Edit</Link></button> <span>|</span>
                     <button onClick={() => deleteMember(member._id)}>Delete</button>
                 </div>
             </div>

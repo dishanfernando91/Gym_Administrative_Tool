@@ -8,10 +8,10 @@ import { AiFillPhone  } from "react-icons/ai";
 
 
 export default function CreateMember() {
-
+    
     const { register, handleSubmit } = useForm();
 
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(null)
 
     const onChangeDate = date => {
         setDate(date)
@@ -28,7 +28,6 @@ export default function CreateMember() {
             gender: data.gender,
             // image: data.picture
         }
-
         
         axios.post('http://localhost:5000/members/add', member)
             .then(res => console.log(res.data))
@@ -40,7 +39,7 @@ export default function CreateMember() {
         <div className="form-group">
             <form onSubmit  ={handleSubmit(onSubmitData)}>
                 <div className="input-container">
-                    <FaUser size={20} className="icon"/><input className="form-control" type="text" name="firstName" placeholder="First name" ref={register} onFocus="this.placeholder = '' "/>
+                    <FaUser size={20} className="icon"/><input className="form-control" type="text" name="firstName" placeholder="First name" ref={register}/>
                     <input className="form-control" type="text" name="lastName" placeholder="Last name" ref={register} />
                 </div>
 
@@ -67,6 +66,8 @@ export default function CreateMember() {
                     <DatePicker
                         selected = {date}
                         onChange = {onChangeDate}
+                        placeholderText="Select date"
+                        dateFormat='dd/MM/yyyy'
                     />
                 </div>
                 <br/>
