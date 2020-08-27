@@ -1,4 +1,12 @@
 
+
+/* ---------------Nav bar ----------------- */
+/*------------------------------------------*/
+.nav-img {
+    width: 35px;
+    padding-right: 10px;
+}
+
 /* --------------Table/Table row-------------- */
 .table {
     border-radius: 5px;
@@ -27,6 +35,8 @@
     border-radius: 15px;
     box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
     margin-top: 10px;
+    position: relative;
+
 }
 
 .input-container {
@@ -217,4 +227,10 @@
 .contact-info {
     width: 200%;
     padding: 20px;
+}
+
+/* ---------------Landing Page------------- */
+
+.logo {
+    width: 30px;
 }
