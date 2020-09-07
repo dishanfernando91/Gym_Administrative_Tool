@@ -3,8 +3,10 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm, Controller } from 'react-hook-form';
-import { FaUser, FaRegAddressBook, FaBirthdayCake } from "react-icons/fa";
-import { AiFillPhone  } from "react-icons/ai";
+
+import { FaUser, FaRegAddressBook, FaBirthdayCake, FaWeight, FaPercentage } from "react-icons/fa";
+import { AiFillPhone, AiOutlineColumnHeight  } from "react-icons/ai";
+import { GiEncirclement } from "react-icons/gi";
 
 
 export default function EditMember(props) {
@@ -15,9 +17,14 @@ export default function EditMember(props) {
         lastName: '',
         gender: '', 
         address: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        features: {
+            height: '',
+            weight:'',
+            bodyFat:'',
+            waist:''
+        }
     })
-
     
     const onChangeDate = date => {
         setDate(date)
@@ -35,9 +42,15 @@ export default function EditMember(props) {
                     lastName: res.data.lastName,
                     address: res.data.address,
                     phoneNumber: res.data.phoneNumber,
-                    gender: res.data.gender
+                    gender: res.data.gender,
+                    features: {
+                        height: res.data.features.height,
+                        weight: res.data.features.weight,
+                        bodyFat: res.data.features.bodyFat,
+                        waist: res.data.features.waist,
+                    }
                 });
-            })           
+            })
     }, [])
 
     useEffect(() => {
@@ -57,12 +70,18 @@ export default function EditMember(props) {
             address: data.address,
             phoneNumber: data.phoneNumber,
             gender: data.gender,
+            features: {
+                height: data.features.height,
+                weight: data.features.weight,
+                bodyFat: data.features.bodyFat,
+                waist: data.features.bodyFat
+            }
         } 
         console.log(updatedMember)
         axios.post(`http://localhost:5000/members/update/${props.match.params.id}`, updatedMember)
             .then(res => console.log(res.data))
 
-        window.location = '/';
+        window.location = '/show/';
     }
 
     return (
@@ -143,6 +162,51 @@ export default function EditMember(props) {
                         onChange = {onChangeDate} 
                         placeholderText="Select date"   
                     />
+                </div>
+                <div className="features-group">
+                    <h6>Features: </h6>
+                    <div className="features-input">
+                        <div>
+                            <AiOutlineColumnHeight className="features-icon" size={16} />
+                            <input 
+                                type="text" 
+                                placeholder="Height" 
+                                name="features.height" 
+                                ref={register}
+                                defaultValue={member.features.height}
+                            />cm
+                        </div>
+                        <div>
+                            <FaWeight className="features-icon" size={14} />
+                            <input 
+                                type="text" 
+                                placeholder="Weight" 
+                                name="features.weight" 
+                                ref={register}
+                                defaultValue={member.features.weight}
+                            />kg
+                        </div>
+                        <div>
+                            <FaPercentage className="features-icon" size={14} />
+                            <input 
+                                type="text" 
+                                placeholder="Body Fat Percentage" 
+                                name="features.bodyFat" 
+                                ref={register}
+                                defaultValue={member.features.bodyFat}
+                            />%
+                        </div>
+                        <div>
+                            <GiEncirclement className="features-icon" size={14} />
+                            <input 
+                                type="text" 
+                                placeholder="Waist" 
+                                name="features.waist" 
+                                ref={register}
+                                defaultValue={member.features.waist}
+                            />cm
+                        </div>
+                    </div>
                 </div>
                 <br/>
                 <div className="subBtn">

@@ -15,11 +15,12 @@ router.route('/add').post((req, res) => {
     const phoneNumber = req.body.phoneNumber;
     const gender = req.body.gender;
     // const image = req.body.image;
-
-    // const height = Number(req.body.height);
-    // const weight = Number(req.body.weight);
-    // const bodyFat = Number(req.body.bodyFat);
-    // const waist = Number(req.body.waist);
+    const features = {
+        height: req.body.features.height,
+        weight: req.body.features.weight,
+        bodyFat: req.body.features.bodyFat,
+        waist: req.body.features.waist
+    }
 
     const newMember = new Members({
         firstName,
@@ -29,7 +30,7 @@ router.route('/add').post((req, res) => {
         phoneNumber,
         gender,
         // image
-        // features: { height, weight, bodyFat, waist }
+        features
     });
 
     newMember.save()
@@ -64,6 +65,12 @@ router.route('/update/:id').post((req, res) => {
         member.address = req.body.address;
         member.phoneNumber = req.body.phoneNumber;
         member.gender = req.body.gender;
+        member.features = {
+            height: req.body.features.height,
+            weight: req.body.features.weight,
+            bodyFat: req.body.features.bodyFat,
+            waist: req.body.features.waist,
+        }
 
         member.save()
           .then(() => res.json('Member updated!'))

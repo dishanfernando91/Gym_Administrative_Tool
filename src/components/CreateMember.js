@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from 'react-hook-form';
-import { FaUser, FaRegAddressBook, FaBirthdayCake  } from "react-icons/fa";
-import { AiFillPhone  } from "react-icons/ai";
 
+import { FaUser, FaRegAddressBook, FaBirthdayCake, FaWeight, FaPercentage } from "react-icons/fa";
+import { AiFillPhone, AiOutlineColumnHeight  } from "react-icons/ai";
+import { GiEncirclement } from "react-icons/gi";
 
 export default function CreateMember() {
     
@@ -27,12 +28,18 @@ export default function CreateMember() {
             phoneNumber: data.phoneNumber,
             gender: data.gender,
             // image: data.picture
+            features: {
+                height: (data.features.height),
+                weight: (data.features.weight),
+                bodyFat: (data.features.bodyFat),
+                waist: (data.features.waist),
+            }
         }
         
         axios.post('http://localhost:5000/members/add', member)
             .then(res => console.log(res.data))
     
-        window.location = '/';
+        window.location = '/show';
     }
 
     return (
@@ -69,6 +76,23 @@ export default function CreateMember() {
                         placeholderText="Select date"
                         dateFormat='dd/MM/yyyy'
                     />
+                </div>
+                <div className="features-group">
+                    <h6>Features: </h6>
+                    <div className="features-input">
+                        <div>
+                            <AiOutlineColumnHeight className="features-icon" size={16} /><input type="text" placeholder="Height" name="features.height" ref={register}/>cm
+                        </div>
+                        <div>
+                            <FaWeight className="features-icon" size={14} /><input type="text" placeholder="Weight" name="features.weight" ref={register}/>kg
+                        </div>
+                        <div>
+                            <FaPercentage className="features-icon" size={14} /><input type="text" placeholder="Body Fat Percentage" name="features.bodyFat" ref={register}/>%
+                        </div>
+                        <div>
+                            <GiEncirclement className="features-icon" size={14} /><input type="text" placeholder="Waist" name="features.waist" ref={register}/>cm
+                        </div>
+                    </div>
                 </div>
                 <br/>
                 <div className="subBtn">

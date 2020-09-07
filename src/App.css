@@ -1,5 +1,4 @@
 
-
 /* ---------------Nav bar ----------------- */
 /*------------------------------------------*/
 .nav-img {
@@ -35,8 +34,8 @@
     border-radius: 15px;
     box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
     margin-top: 10px;
+    margin-bottom: 50px;
     position: relative;
-
 }
 
 .input-container {
@@ -57,7 +56,14 @@
     border: 0;
     border-radius: 0;
     border-bottom: 1px solid rgb(153, 153, 153);
+    outline: none;
     /* color: rgb(242, 242, 242); */
+}
+
+.input-container input:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .input-gender {
@@ -146,6 +152,39 @@
     /* color: rgb(242, 242, 242); */
     margin-left: 15px;
 }
+
+/*---------------FEATURES GROUP-----------*/
+.features-group{
+    width: 700px;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+    padding: 5px;
+    margin-top: 40px;
+}
+
+.features-input{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3px;
+}
+
+.features-input input{
+    width: 65%;
+    margin: 5px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    height: 24px;
+    font-size: 14px;
+    outline: none;
+    text-align: center;
+}
+
+.features-icon {
+    margin-right: 5px;
+}
+
+/*-----------------END OF FEATURES--------*/
 
 .subBtn {
     /* border: 1px solid black; */

@@ -6,15 +6,18 @@ import axios from 'axios'
 export default function MemberDetail(props) {
 
     const [member, setMember] = useState({});
+    const [features, setFeatures] = useState({});
     const { firstName, lastName, address, phoneNumber, gender } = member;
     
     useEffect(() => {
         axios.get(`http://localhost:5000/members/show/${props.match.params.id}`)
-           .then(res => setMember(res.data))
-    }, [])
+           .then(res => {
+               setMember(res.data)
+               setFeatures(res.data.features)}
+            )}, [])
 
     //----------------All Members for Delete Functionality -------------//
-    //------------------------------------------------------------------//
+    //---------------(deletes member and POST updated array)-------------//
 
     const [members, setMembers] = useState([])
 
@@ -35,10 +38,7 @@ export default function MemberDetail(props) {
 
         window.location = '/';
     }
-
     //---------------------------------------------------------------------//
-    //---------------------------------------------------------------------//
-
     return (
         <>
         <div className="member-card" >
@@ -55,10 +55,10 @@ export default function MemberDetail(props) {
                 </div>
                 <div className="features">
                     <h6>Features:</h6>
-                    <p>Height: 185 cm</p>
-                    <p>Weight: 120 kg</p>
-                    <p>Body Fat Percentage: 35%</p>
-                    <p>Waist: 85 CM</p>
+                    <p>Height: {features.height}cm</p>
+                    <p>Weight: {features.weight}KG</p>
+                    <p>Body Fat Percentage: {features.bodyFat}%</p>
+                    <p>Waist: {features.waist}cm</p>
                 </div>
             </div>
             <div className="contact-info">
