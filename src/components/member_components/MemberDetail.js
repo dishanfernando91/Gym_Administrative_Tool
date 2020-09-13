@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import noImage from '../images/no-image-available.jpg'
+import noImage from '../../images/no-image-available.jpg'
 import axios from 'axios'
 
 export default function MemberDetail(props) {

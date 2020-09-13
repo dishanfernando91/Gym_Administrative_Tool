@@ -8,7 +8,7 @@ export default function MemberList() {
     const [members, setMembers] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/members/')
+        axios.get('http://localhost:5000/members')
         .then(res => {
             setMembers(res.data)
         })

@@ -20,8 +20,10 @@ connection.once('open', () => {
 
 // --------- routes ...........
 const membersRouter = require('./routes/members');
+const packageRouter = require('./routes/packages');
 
 app.use('/members', membersRouter);
+app.use('/packages', packageRouter);
 //----------------------------
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
