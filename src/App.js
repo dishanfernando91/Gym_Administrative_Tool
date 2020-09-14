@@ -10,7 +10,7 @@ import CreateMember from './components/member_components/CreateMember';
 import MemberList from './components/member_components/MemberList';
 import MemberDetail from './components/member_components/MemberDetail';
 
-import CreatePackage from './components/payment_components/CreatePackage';
+import CreatePackage from './components/package_component/CreatePackage';
 
 function App() {
   return (

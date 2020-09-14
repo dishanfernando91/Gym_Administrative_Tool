@@ -273,3 +273,66 @@
 .logo {
     width: 30px;
 }
+
+/* .........................................
+.........P a c k a g e    P a g e............
+........................................... */
+
+.pkg-group{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.pkg-form {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* border: 1px solid black; */
+    width: 80%;
+    margin-left: 100px;
+}
+.pkg-form input{
+    width: 65%;
+    margin: 5px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    height: 24px;
+    font-size: 16px;
+    outline: none;
+}
+.pkg-button{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    width: 80%;
+}
+.pkg-card {
+    border: 1px solid black;
+    width: 220px;
+    height: 100px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 15px;
+    box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+}
+.pkg-card span{
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.pkg-card button{
+    border: none;
+    background: none;
+    color: red;
+}

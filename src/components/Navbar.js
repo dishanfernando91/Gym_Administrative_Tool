@@ -27,6 +27,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link to="/create" className="nav-link">Create Member</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/packages" className="nav-link">Packages</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
