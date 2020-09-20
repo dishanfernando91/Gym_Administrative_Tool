@@ -70,7 +70,7 @@ router.route('/update/:id').post((req, res) => {
             weight: req.body.features.weight,
             bodyFat: req.body.features.bodyFat,
             waist: req.body.features.waist,
-        }
+            }
 
         member.save()
           .then(() => res.json('Member updated!'))

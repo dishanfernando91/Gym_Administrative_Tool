@@ -20,10 +20,12 @@ connection.once('open', () => {
 
 // --------- routes ...........
 const membersRouter = require('./routes/members');
-const packageRouter = require('./routes/packages');
+const packagesRouter = require('./routes/packages');
+const paymentsRouter = require('./routes/payments');
 
 app.use('/members', membersRouter);
-app.use('/packages', packageRouter);
+app.use('/packages', packagesRouter);
+app.use('/payments', paymentsRouter);
 //----------------------------
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -9,7 +9,6 @@ const memberSchema = new Schema({
     phoneNumber: { type: String, required: true},
     gender: {type: String, required: true},
     // image: {type: File, required: false}
-
     features: {
         height: { type: String, required: false },
         weight: { type: String, required: false },

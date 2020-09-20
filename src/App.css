@@ -281,6 +281,8 @@
 .pkg-group{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  width: 75%;
+  margin: 0 auto;
 }
 
 
@@ -290,7 +292,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     /* border: 1px solid black; */
     width: 80%;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 .pkg-form input{
     width: 65%;
@@ -301,6 +303,7 @@
     height: 24px;
     font-size: 16px;
     outline: none;
+    
 }
 .pkg-button{
     display: flex;
@@ -335,4 +338,16 @@
     border: none;
     background: none;
     color: red;
+}
+
+
+/* .........................................
+.........P a y m e n t   P a g e............
+........................................... */
+
+.pyt-container{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    padding: 30px;
 }

@@ -27,7 +27,6 @@ export default function CreateMember() {
             address: data.address,
             phoneNumber: data.phoneNumber,
             gender: data.gender,
-            // image: data.picture
             features: {
                 height: (data.features.height),
                 weight: (data.features.weight),

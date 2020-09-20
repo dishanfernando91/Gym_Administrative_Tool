@@ -30,6 +30,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link to="/packages" className="nav-link">Packages</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/payments" className="nav-link">Payments</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

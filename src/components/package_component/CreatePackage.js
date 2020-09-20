@@ -16,7 +16,7 @@ export default function CreatePackage() {
         })
         .catch(err => console.log(err))
     }, [])
-
+    
     const onSubmitData = data => {
         const packageInfo = {
             title: data.title,

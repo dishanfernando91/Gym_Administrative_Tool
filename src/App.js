@@ -11,6 +11,7 @@ import MemberList from './components/member_components/MemberList';
 import MemberDetail from './components/member_components/MemberDetail';
 
 import CreatePackage from './components/package_component/CreatePackage';
+import CreatePayment from './components/payment_components/CreatePayment';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/show/:id' exact component = {MemberDetail} />
       <Route path='/edit/:id' exact component = {EditMember} />
       <Route path='/packages' exact component = {CreatePackage} />
+      <Route path='/payments' exact component = {CreatePayment} />
    </Router>
   );
 }

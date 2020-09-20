@@ -4,13 +4,13 @@ let Packages = require('../models/packages.model');
 router.route('/').get((req, res) => {
     Packages.find()
         .then(packages => res.json(packages))
-        .catch(err => res.status(400).json(`Error: ${err}`))
-});
+        .catch(err => res.status(400).json(`Error: ${err}`))      
+}); 
 
 router.route('/add').post((req, res) => {
     const title = req.body.title;
     const fee = req.body.fee;
-    const duration = req.body.duration;  
+    const duration = req.body.duration;
 
     const newPackage = new Packages({
         title,

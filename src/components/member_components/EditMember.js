@@ -77,7 +77,6 @@ export default function EditMember(props) {
                 waist: data.features.bodyFat
             }
         } 
-        console.log(updatedMember)
         axios.post(`http://localhost:5000/members/update/${props.match.params.id}`, updatedMember)
             .then(res => console.log(res.data))
 
