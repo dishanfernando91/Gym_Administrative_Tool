@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`))
 });
 
+router.route('/history').get((req, res) => {
+  Payments.find()
+      .then(payments => res.json(payments))
+      .catch(err => res.status(400).json(`Error: ${err}`))
+});
+
 router.route('/add').post((req, res) => {
     const year = req.body.year; 
     const month = req.body.month;

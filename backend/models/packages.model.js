@@ -6,6 +6,7 @@ const packageSchema = new Schema({
     title: { type: String, required: false },
     fee: { type: Number, required: true },
     duration: { type: Number, required: false },
+    status: { type: Boolean , default: true} 
 }, {
     timestamps: true,
 });

@@ -326,7 +326,11 @@
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+}
 
+.pkg-inactive {
+    opacity: 0.5;
+    background: #ccc
 }
 .pkg-card span{
     font-size: 12px;
@@ -345,9 +349,44 @@
 .........P a y m e n t   P a g e............
 ........................................... */
 
+.pyt-head{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
 .pyt-container{
+    width: 750px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 30px;
 }
+.pyt-form{
+
+}
+.pyt-selector {
+    width: 50%;
+    display: inline-block;
+    padding: 10px 30px
+}
+.pyt-form-btn{
+    width: 90%;
+    height: 30px;
+    margin: 20px 0 10px 33px;
+    background-color: rgb(115, 115, 115);
+    color: rgb(230, 230, 230);
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px;
+    text-transform: uppercase;
+    transition: all .5s;
+}
+.pyt-form-btn:hover{
+    background-color:rgb(51, 51, 51);
+}
+
+/* ...............P a y m e n t   H i s t o r y........ */
+
+/* ..........P a y m e n t   T a b l e........... */
+

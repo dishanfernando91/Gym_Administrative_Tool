@@ -23,11 +23,11 @@ router.route('/add').post((req, res) => {
         .catch(err => res.json(`Error: ${err}`))
 });
 
-router.route('/:id').delete((req, res) => {
-    Packages.findByIdAndDelete(req.params.id)
-        .then(() => res.json("Package deleted..."))
-        .catch(err => res.status(400).json(`Error: ${err}`))
-});
+// router.route('/:id').delete((req, res) => {
+//     Packages.findByIdAndDelete(req.params.id)
+//         .then(() => res.json("Package deleted..."))
+//         .catch(err => res.status(400).json(`Error: ${err}`))
+// });
 
 router.route('/update/:id').post((req, res) => {
     Packages.findById(req.params.id)
@@ -35,9 +35,10 @@ router.route('/update/:id').post((req, res) => {
         package.title = req.body.title;
         package.fee = req.body.fee;
         package.duration = req.body.duration;
+        package.status = req.body.status;
 
         package.save()
-          .then(() => res.json('Package updated!'))
+          .then(() => res.json('Package set to inactive!'))
           .catch(err => res.status(400).json('Error: ' + err));
       })
       .catch(err => res.status(400).json('Error: ' + err));

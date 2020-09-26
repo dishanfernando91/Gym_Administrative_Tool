@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 
@@ -36,13 +37,15 @@ export default function CreatePayment() {
     }, [])
 
     const memberOptions = members.map(member => {
-       return {value: member, label: member.firstName}
+       return {value: member, label: `${member.firstName} ${member.lastName}`}
     })
     //package --> gymPackage, package is reserved
-    const packageOptions = packages.map(gymPackage => {
-        return {value: gymPackage, label: gymPackage.title}
+    const packageOptions = packages.filter(gymPackage => gymPackage.status).map(gymPackage => {
+           return {value: gymPackage, label: gymPackage.title} 
     });
-    const months = [
+   
+
+    const months = [    
         {value: "January", label: "January"},
         {value: "February", label: "February"},
         {value: "March", label: "March"},
@@ -85,7 +88,7 @@ export default function CreatePayment() {
             axios.post('http://localhost:5000/payments/add', payment)
                 .then(res => console.log(res.data))    
 
-        }else if(currentMonth === lastEntry.month && currentYear === lastEntry.year) {
+        } else if(currentMonth === lastEntry.month && currentYear === lastEntry.year) {
             axios.put(`http://localhost:5000/payments/update/${lastEntry._id}`, payment)
                 .then(res => console.log(res.data))    
 
@@ -94,7 +97,8 @@ export default function CreatePayment() {
                .then(res => console.log(res.data))   
 
         } else {
-            console.log("Request not passed through...")
+            axios.post('http://localhost:5000/payments/add', payment)
+                .then(res => console.log(res.data))
         }
         
         window.location.reload(false);
@@ -102,10 +106,18 @@ export default function CreatePayment() {
 
     return (
         <>
+        <h3 className="pyt-head">Payment Selection</h3>
         <div className="pyt-container">
-    
+        
             <div className="pyt-form">
                 <form onSubmit={handleSubmit(onSubmitData)}>
+                {/* <Controller
+                    as={<Select />}
+                    name=""
+                    control={control}
+                    placeholder="Member ID"
+                    className="pyt-selector"
+                /> */}
                 <Controller
                     as={<Select 
                         options={months}/>}
@@ -113,30 +125,28 @@ export default function CreatePayment() {
                     control={control}
                     isSearchable
                     defaultValue={{ value: currentMonth, label: currentMonth }}
+                    className="pyt-selector"
                 />
                 <Controller
                     as={<Select options={memberOptions}/>}
                     name="member"
                     control={control}
                     isSearchable
+                    placeholder="Enter Name"
+                    className="pyt-selector"
                 />
                 <Controller
                     as={<Select options={packageOptions}/>}
                     name="gymPackage"
                     control={control}
                     isSearchable
+                    placeholder="Package"
+                    className="pyt-selector"
                 />
-                <input type="submit" />
+                <input type="submit" className="pyt-form-btn"/>
                 </form>
             </div>
-            
-            <div className="pyt-info">
-                asd
-            </div>
-
-            <div className="pyt-addInfo">
-                asd
-            </div>
+            <Link to={`/payments/history`}>View Payment History</Link>
         </div>
         </>
     )

@@ -30,15 +30,25 @@ export default function CreatePackage() {
     
     const packageList = () => {
         return packages.map(currentPackage => {
-            return <PackageDetails package={currentPackage} key={currentPackage._id} deletePackage={deletePackage}/>
+            return <PackageDetails package={currentPackage} key={currentPackage._id} setInactive={setInactive}/>
         })
     }
 
-    const deletePackage = id => {
-        axios.delete(`http://localhost:5000/packages/${id}`)
-            .then(response => { console.log(response.data)});
+    const setInactive = id => {
+        const {title, fee, duration, status} = packages.find(packages => packages._id === id)
 
-        setPackages(packages.filter(el => el._id !== id))
+        const packageInfo = {
+            title,
+            fee,
+            duration,
+            status: !status
+        }
+        axios.post(`http://localhost:5000/packages/update/${id}`, packageInfo)
+            .then(response => {
+                console.log(response.data)
+            });
+            
+        window.location = './packages'
     }
 
     return (

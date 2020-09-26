@@ -6,7 +6,8 @@ const paymentSchema = new Schema({
     month: { type: String, default: new Date().toLocaleDateString('default', {month: 'long'}) },
     payments : [{
         memberID : { type: String, required: true},
-        package: { type: String, required: true }
+        package: { type: String, required: true },
+        Date: { type: Date, default: new Date()}
     }]
 }, {
     timestamps: true,
