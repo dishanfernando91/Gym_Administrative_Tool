@@ -10,22 +10,22 @@ export default function PaymentTable({ paymentObjects }) {
         })
     }
     return (
-        <div>
-            <div className="container">
-            <table className="table">
-            <thead className="thead-light">
-                <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Package</th>
-                <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {paymentList()}
-            </tbody>
-            </table>
-        </div>
+        <div className="pyt-table-container">
+            <div className="container pyt-table">
+                <table className="table">
+                <thead className="thead-light">
+                    <tr>
+                    <th style={{width: "8%"}}>ID</th>
+                    <th style={{width: "20%"}}>Name</th>
+                    <th style={{width: "20%"}}>Package</th>
+                    <th style={{width: "10%"}}>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {paymentList()}
+                </tbody>
+                </table>
+            </div>
         </div>
     )
 }

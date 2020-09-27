@@ -44,7 +44,6 @@ export default function CreatePayment() {
            return {value: gymPackage, label: gymPackage.title} 
     });
    
-
     const months = [    
         {value: "January", label: "January"},
         {value: "February", label: "February"},
@@ -108,7 +107,6 @@ export default function CreatePayment() {
         <>
         <h3 className="pyt-head">Payment Selection</h3>
         <div className="pyt-container">
-        
             <div className="pyt-form">
                 <form onSubmit={handleSubmit(onSubmitData)}>
                 {/* <Controller
@@ -146,7 +144,9 @@ export default function CreatePayment() {
                 <input type="submit" className="pyt-form-btn"/>
                 </form>
             </div>
-            <Link to={`/payments/history`}>View Payment History</Link>
+            <div className="pyt-history-link">
+                <Link className="pyt-history-text" to={`/payments/history`}>View Payment History</Link>
+            </div>
         </div>
         </>
     )
